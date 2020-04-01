@@ -1,0 +1,29 @@
+.container {
+  display: block;
+  margin-top: 15px;
+  &:first-child {
+    margin-top: 20px;
+  }
+  .buttonsWrapper {
+    display: flex;
+    align-items: center;
+    float: left;
+    .button {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  a {
+    color: #b6b6b6;
+    text-decoration: underline;
+    line-height: 22px;
+    &:hover {
+      color: #e7e7e7;
+    }
+  }
+}

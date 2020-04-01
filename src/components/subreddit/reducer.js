@@ -1,5 +1,7 @@
 import * as AT from './action-types';
 
+import * as POST_AT from '../post/action-types';
+
 const initialState = {
   isFetching: false,
   posts: [],
@@ -44,13 +46,60 @@ export default (state = { ...initialState }, action) => {
 
     case AT.PUSH_RANDOM_POST_TO_THE_LIST: {
       const { post } = action.payload;
+      post.isLiked = false;
+
       return {
         ...state,
         isFetching: false,
         posts: [...state.posts, post],
       }
     }
-    
+
+    // Post actions
+    case POST_AT.LIKE_POST: {
+      const { index } = action.payload;
+
+      return {
+        ...state,
+        posts: state.posts.map((item, i) => {
+          if (i === index) {
+            return {
+              ...item,
+              isLiked: true,
+            }
+          } else return item
+        })
+      }
+    }
+
+    case POST_AT.UNLIKE_POST: {
+      const { index } = action.payload;
+
+      return {
+        ...state,
+        posts: state.posts.map((item, i) => {
+          if (i === index) {
+            return {
+              ...item,
+              isLiked: false,
+            }
+          } else return item
+        })
+      }
+    }
+
+    case POST_AT.DELETE_POST: {
+      const { index } = action.payload;
+
+      return {
+        ...state,
+        posts: state.posts.filter((item, i) => {
+          if (i !== index) return item;
+          return null;
+        })
+      }
+    }
+
     default:
       return state;
   }
