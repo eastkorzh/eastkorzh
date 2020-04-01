@@ -1,0 +1,36 @@
+.container {
+  position: relative;
+  margin-top: 10px;
+  height: 42px;
+  .button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    height: 30px;
+    width: 70px;
+    background-color: #8e9b9e;
+    border: 1px solid #c5c5c5;
+    box-shadow: 0 0 0 1px #030507a2;
+    border-radius: 3px;
+    color: #e4e4e4;
+    cursor: pointer;
+    animation: move 7s ease-in-out infinite;
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes move {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: calc(100% - 92px);
+  }
+  100% {
+    left: 0;
+  }
+}

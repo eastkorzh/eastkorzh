@@ -1,10 +1,15 @@
 import React from 'react';
 
-import Subreddit from './components/subreddit';
+import SubredditList from './components/subredditList';
+
+import './styles/index.css';
 
 const App = () => {
   return (
-    <Subreddit />
+    <div className='app'>
+      <SubredditList />
+
+    </div>
   )
 }
 

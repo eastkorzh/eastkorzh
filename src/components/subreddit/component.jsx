@@ -1,8 +1,16 @@
 import React from 'react';
 
-const Subreddit = () => {
+import s from './styles.module.scss';
+
+const Subreddit = (props) => {
+  const { name } = props;
+
   return(
-    <div>Subreddit</div>
+    <div className={s.container}>
+      <div className={s.button}>
+        {name}
+      </div>
+    </div>
   )
 }
 
