@@ -7,10 +7,10 @@ import s from './styles.module.scss';
 const SubredditList = () => {
   return (
     <div className={s.container}>
-      <Subreddit name='Frontend' />
-      <Subreddit name='ReactJS' />
-      <Subreddit name='VueJS' />
-      <Subreddit name='Angular' />
+      <Subreddit name='Frontend' route='frontend'/>
+      <Subreddit name='ReactJS' route='reactjs'/>
+      <Subreddit name='VueJS' route='vuejs'/>
+      <Subreddit name='Angular' route='angular'/>
     </div>
   )
 }

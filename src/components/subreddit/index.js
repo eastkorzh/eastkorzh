@@ -1,16 +1,10 @@
 import { connect } from 'react-redux';
 
 import Subreddit from './component';
-//import * as actions from './actions';
-
-const mapStateToProps = state => ({
-	// statistics: state.table.statistics,
-	// searchParam: state.searchParam.searchParam,
-	// currentPage: state.table.currentPage,
-})
+import * as actions from './actions';
 
 const mapDispatchToProps = {
-  // getStatistics: actions.getStatistics,
+	getRandomPosts: actions.getRandomPosts,
 }
 
-export default connect(null, null)(Subreddit);
+export default connect(null, mapDispatchToProps)(Subreddit);
