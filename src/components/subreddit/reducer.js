@@ -20,7 +20,10 @@ export default (state = { ...initialState }, action) => {
       }
       
     case AT.GET_RANDOM_POSTS_SUCCESS: {
+      // После того как получил посты для конкретного subreddit (здесь - route),
+      // кеширую из в postsCache
       const { route, result, expireTime } = action.payload;
+
       return {
         ...state,
         isFetching: false,
@@ -61,6 +64,8 @@ export default (state = { ...initialState }, action) => {
 
       return {
         ...state,
+        // Для больших объемов данных массив использовать не эффективно, а
+        // лучше испльзовать Linked List, но здесь уместен и массив.
         posts: state.posts.map((item, i) => {
           if (i === index) {
             return {
@@ -93,6 +98,7 @@ export default (state = { ...initialState }, action) => {
 
       return {
         ...state,
+        // Особенно эффективно использовать Linked List в данной операции
         posts: state.posts.filter((item, i) => {
           if (i !== index) return item;
           return null;

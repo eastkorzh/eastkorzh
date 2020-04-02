@@ -33,4 +33,3 @@ const persistor = persistStore(store);
 rootSagas.forEach(saga => sagaMiddleware.run(saga));
 
 export default { store, persistor };
-

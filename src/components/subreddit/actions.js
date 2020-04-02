@@ -1,5 +1,7 @@
 import * as AT from './action-types';
 
+// Посты на самом деле не случайные, а одни и те же для каждего subreddit.
+// Посты запрашивал так же как здесь https://codesandbox.io/s/72j28q2k50
 export const getRandomPosts = ({ route }) => ({
   type: AT.GET_RANDOM_POSTS,
   payload: {
